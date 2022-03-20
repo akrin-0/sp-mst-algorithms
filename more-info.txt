@@ -1,0 +1,80 @@
+Details (Prepared by Berk Atıl)
+
+Story: Mecnun and Leyla are two lovers who live in the Anatolian country. They try to come
+together but Leyla’s father is preventing them from doing so. Recently Leyla has tried to con-
+vince her father and she eventually manages to do. But her father offers a condition for Mecnun
+that he has to reach their town in time less than or equal to a threshold. The father sets the
+threshold and writes it to a piece of paper and hides the paper. Mecnun will be informed about
+the challenge but he will not be provided any information about the time that was set. The
+countdown for Mecnun will start at the moment he departs from his city and if he can arrive
+in time Leyla’s father will let them marry. Mecnun has a map of the Anatolian country which
+demonstrates all land routes over the country and their lengths. The country is divided into
+two regions by a river. Leyla and Mecnun are in the same region of the country but in different
+cities. Leyla’s city is the only city in the country where there are bridges for crossing to the
+other side of the country. For this reason, anyone who wants to cross over to the other side
+should visit this city.
+    Two cities can be considered neighboring cities if there is a road between them. The roads
+of the country are one-way for the vehicles and two-ways for the pedestrians. Mecnun will take
+a bus while going to Leyla to be able to reach fast. Each road has a bus service of its own
+and there is always a bus service available at any given time. Every bus has the same constant
+velocity.
+    Mecnun and Leyla are planning a honeymoon in which they would be traveling on foot to
+all the cities of the other side of the country. But each pedestrian has to pay a sidewalk-tax
+which is equal to the length of the road. If they can’t find a decent travel route for their plan,
+they will have to stay in the city where Leyla lives.
+
+• For each case output consists of a list of integers and one integer, list1 and int1. List1
+indicates the output generated for Mecnun’s path to reach Leyla. int1 indicates the output
+generated for the Honeymoon path.
+
+• Mecnun does not know the time set by the father, so he must take the shortest possible
+route. The shortest route to be used in list1 should be containing the IDs of the cities
+passed starting from Mecnun’s city to Leyla’s city. If there is no route from Mecnun’s
+city to Leyla’s city, list1 should contain only -1.
+
+• When Mecnun tries to reach Leyla’s city, he cannot get over the bridge. On the hon-
+eymoon, they can only visit Leyla’s city + cities of other side of the country. (For the
+sample map illustrated in Schema 1, only c7, d1, d2, d3, and d4 cities can be visited on
+the honeymoon.)
+
+• If Mecnun can reach Leyla, Leyla’s father will compare the time he arrived with the time
+on the paper and come to a decision. Since the speed of the buses is 1br/second, the
+arrival time is equal to the total length of the path.
+
+• Mecnun and Leyla are planning to walk around all the cities of the other side of the
+country and have the walkthrough honeymoon with the lowest sidewalk-tax. The roads
+traveled are subject to a sidewalk-tax proportional to their length, and after the tax is
+paid once, subsequent uses of the road are free of charge. In this case, the length of the
+path they walk does not matter. The sidewalk-tax paid must be the lowest and the route
+must include all cities of the other side of the country. The tax paid by Mecnun will be
+the int1 part of the output.
+
+• If there is no such honeymoon route, Mecnun stays in Leyla’s city and int1 should be -2.
+
+• If they cannot get married, Mecnun disappears as per the legend. In this case int1 should
+be -1.
+
+How to compile:
+javac ./sp-mst-algorithms.java -d . -release 17
+How to run:
+java sp-mst-algorithms <inputfile> <outputfile>
+
+Input format (examine sample):
+8                            | Time(weight) limit determined by Leyla’s father is 8.
+11                           | The country has 11 cities. IDs start with c represents the cities of the side where Leyla and Mecnun lives and IDs start with d represents the cities of the other side of the country.
+c1 c7                        | The city of Mecnun and the city of Leyla respectively.
+c1 c2 1 c3 3 c5 5            | City c1 is connected to c2, c3 and c5 with weights of 1,3 and 4 respectively.
+c2 c4 6 c5 3 c6 5            | City c2 is connected to c4, c5 and c6 with weights of 6,3 and 4 respectively.
+c3 c4 2 c6 2                 | City c3 is connected to c4, c6 with weights of 2 and 2 respectively.
+c4 c7 3                      | City c4 is connected to c7 with weight of 3.
+c5 c7 2                      | City c5 is connected to c7 with weight of 2.
+c6 c7 1                      | City c6 is connected to c7 with weight of 1.
+c7 d1 2 d2 3 d4 5            | City c7 is connected to d1, d2 and d4 with weights of 2,3 and 5 respectively.
+d1 d2 4 d3 2 d4 3            | City d1 is connected to d2, d3, and d4 with weights of 4,2 and 3 respectively.
+d2 d3 1                      | City d2 is connected to d3 with weight of 4.
+d3 d4 4                      | City d3 is connected to d4 with weight of 4.
+d4 d2 4                      | City d4 is connected to d2 with weight of 4.
+
+Output format (examine sample):
+c1 c2 c5 c7 or c1 c3 c6 c7 | The path that Mecnun can reach Leyla. Since there are two paths with the same minimum length of 6, any of them is accepted.
+16                         | The side-walk tax paid on the Honeymoon route. (c7,d1), (d1,d4), (d1,d3) and (d2,d3) ways are used so (2+3+2+1)*2=16. (Doubling since both Leyla and Mecnun travel.)
