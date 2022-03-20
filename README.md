@@ -1,1 +1,1 @@
-# sp-mst-algorithms
+# Shortest path and minimum spanning tree algortihms.
