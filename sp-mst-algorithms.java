@@ -469,7 +469,7 @@ public class sp-mst-algorithms {
 		edgeNum += edgesInLeylaLine; // Total edge # to call the graph method for minimum spanning tree.
 		
 		// Initialize new object of main class, then use the Graph method to build graph.
-		project3main graph = new project3main();
+		sp-mst-algorithms graph = new sp-mst-algorithms();
 		graph.GraphMST(verticesNumD, edgeNum);
 		
 		/**
